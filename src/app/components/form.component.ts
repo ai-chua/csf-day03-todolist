@@ -10,6 +10,7 @@ import { taskList } from '../model/tasklist'
 })
 export class FormComponent implements OnInit {
   taskForm: FormGroup;
+  tomorrow = new Date();
 
   constructor(private fb: FormBuilder) {
     this.taskForm = fb.group({
@@ -17,19 +18,20 @@ export class FormComponent implements OnInit {
       priority: fb.control(''),
       due: fb.control('')
     })
+    this.tomorrow.setDate(this.tomorrow.getDate() +1);
   }
 
   ngOnInit(): void {
   }
 
   addTask(){
+    console.info(this.taskForm.value.due._i)
     let task = new Task(
       this.taskForm.value.description,
-      this.taskForm.value.priority,
-      this.taskForm.value.due
+      this.taskForm.value.due,
+      this.taskForm.value.priority
     )
-    console.info(typeof Task)
-    taskList.push(task)
+    taskList.push(task);
     console.log(task)
   }
 }

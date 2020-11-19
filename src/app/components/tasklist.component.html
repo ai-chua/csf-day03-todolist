@@ -2,5 +2,5 @@
 
 <div class="task-card" *ngFor="let task of currentTasks">
   <h3>{{task.description}}</h3>
-  <p><span><em>{{task.priority}}</em></span> <span>{{task.due}}</span></p>
+  <p><span><em>{{task.priority}}</em></span> <span>{{task.due | date}}</span></p>
 </div>

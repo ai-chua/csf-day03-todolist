@@ -1,7 +1,7 @@
 export class Task {
   constructor(
     public description: string,
-    public priority: string,
-    public due: string, // TO BE CHANGED TO DATE TYPE
-  ) {}
+    public due: Date,
+    public priority: string
+  ) { }
 }
