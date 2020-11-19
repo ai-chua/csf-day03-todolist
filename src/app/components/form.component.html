@@ -1,0 +1,21 @@
+<h2>Add Task</h2>
+
+<form action="" class="form-group" [formGroup]="taskForm" (ngSubmit)="addTask()">
+  <div class="">
+    <label for="">Description:</label>
+    <input type="text" formControlName="description" placeholder="Walk the dog 🐕">
+  </div>
+  <div class="">
+    <label for="">Priority:</label>
+    <input type="radio" formControlName="priority" value="High" id=""><label for="high">❗️❗️❗️</label>
+    <input type="radio" formControlName="priority" value="Medium" id=""><label for="medium">❗️❗️</label>
+    <input type="radio" formControlName="priority" value="Low" id=""><label for="low">❗️</label>
+  </div>
+  <div class="">
+    <label for="">Due:</label>
+    <input type="date" formControlName="due" name="" id="">
+  </div>
+  <button type="submit" class="btn btn-primary">Add</button>
+</form>
+
+<app-tasklist></app-tasklist>

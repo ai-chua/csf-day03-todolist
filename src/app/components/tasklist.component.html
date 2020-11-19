@@ -1,0 +1,6 @@
+<h2>To-Do:</h2>
+
+<div class="task-card" *ngFor="let task of currentTasks">
+  <h3>{{task.description}}</h3>
+  <p><span><em>{{task.priority}}</em></span> <span>{{task.due}}</span></p>
+</div>
