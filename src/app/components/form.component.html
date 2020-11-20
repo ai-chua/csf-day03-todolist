@@ -1,21 +1,36 @@
-<h2>Add Task</h2>
-
-<form action="" class="form-group" [formGroup]="taskForm" (ngSubmit)="addTask()">
-  <div class="">
-    <label for="">Description:</label>
-    <input type="text" formControlName="description" placeholder="Walk the dog 🐕">
-  </div>
-  <div class="">
-    <label for="">Priority:</label>
-    <input type="radio" formControlName="priority" value="High" id=""><label for="high">❗️❗️❗️</label>
-    <input type="radio" formControlName="priority" value="Medium" id=""><label for="medium">❗️❗️</label>
-    <input type="radio" formControlName="priority" value="Low" id=""><label for="low">❗️</label>
-  </div>
-  <div class="">
-    <label for="">Due:</label>
-    <input type="date" formControlName="due" name="" id="">
-  </div>
-  <button type="submit" class="btn btn-primary">Add</button>
-</form>
-
-<app-tasklist></app-tasklist>
+<div class="form-container">
+  <h2>Add Task</h2>
+  
+  <form action="" class="form-group example-form" [formGroup]="taskForm" (ngSubmit)="addTask()">
+    
+    <mat-form-field class="full-width" appearance="fill">
+      <mat-label>Description</mat-label>
+      <input class="full-width" matInput formControlName="description" placeholder="Walk the dog 🐕">
+    </mat-form-field>
+    
+    <br>
+    
+    <label for="priority">Priority</label><br><br>
+    <mat-radio-group id="priority" formControlName="priority">
+      <mat-radio-button value="High">❗️❗️❗️</mat-radio-button>
+      <mat-radio-button value="Medium">❗️❗️</mat-radio-button>
+      <mat-radio-button value="Low">❗️</mat-radio-button>
+    </mat-radio-group>
+    
+    <br><br>
+    
+    <mat-form-field class="full-width" appearance="fill">
+      <mat-label>Due date:</mat-label>
+      <input class="full-width" matInput [matDatepicker]="dp" [min]="tomorrow"  formControlName="due">
+      <mat-datepicker-toggle matSuffix [for]="dp"></mat-datepicker-toggle>
+      <mat-datepicker #dp></mat-datepicker>
+    </mat-form-field>
+    
+    <br>
+    
+    <button mat-raised-button color="primary" type="submit" class="btn btn-primary">Add</button>
+  </form>
+  <br>
+  
+  <app-tasklist></app-tasklist>
+</div>

@@ -1,5 +1,10 @@
-.task-card {
-  background-color: beige;
-  padding: 2rem;
-  margin: 1.5rem;
+.example-card {
+  min-width: 200px;
+  margin-bottom: 2em;
+  width: 15vw;
+}
+
+.task-container {
+  width: 95vw;
+  margin: 0 auto;
 }
