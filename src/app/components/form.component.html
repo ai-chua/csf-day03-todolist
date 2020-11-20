@@ -6,6 +6,7 @@
     <mat-form-field class="full-width" appearance="fill">
       <mat-label>Description</mat-label>
       <input class="full-width" matInput formControlName="description" placeholder="Walk the dog 🐕">
+      <mat-error *ngIf="taskForm.get('description').touched && taskForm.get('description').invalid">Please enter a valid description for your task!</mat-error>
     </mat-form-field>
     
     <br>
@@ -15,6 +16,7 @@
       <mat-radio-button value="High">❗️❗️❗️</mat-radio-button>
       <mat-radio-button value="Medium">❗️❗️</mat-radio-button>
       <mat-radio-button value="Low">❗️</mat-radio-button>
+      <mat-error *ngIf="taskForm.get('priority').touched && taskForm.get('priority').invalid">Please select a priority for your task!</mat-error>
     </mat-radio-group>
     
     <br><br>
@@ -24,11 +26,12 @@
       <input class="full-width" matInput [matDatepicker]="dp" [min]="tomorrow"  formControlName="due">
       <mat-datepicker-toggle matSuffix [for]="dp"></mat-datepicker-toggle>
       <mat-datepicker #dp></mat-datepicker>
+      <mat-error *ngIf="taskForm.get('due').touched && taskForm.get('due').invalid">Please select a valid due date!</mat-error>
     </mat-form-field>
     
     <br>
     
-    <button mat-raised-button color="primary" type="submit" class="btn btn-primary">Add</button>
+    <button mat-raised-button color="primary" type="submit" class="btn btn-primary" [disabled]="taskForm.invalid">Add</button>
   </form>
   <br>
   
