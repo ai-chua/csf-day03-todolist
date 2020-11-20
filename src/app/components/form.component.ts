@@ -25,7 +25,8 @@ export class FormComponent implements OnInit {
   }
 
   addTask(){
-    console.info(this.taskForm.value.due._i)
+    console.info(typeof this.taskForm.value.due)
+    console.info(this.taskForm.value.due)
     let task = new Task(
       this.taskForm.value.description,
       this.taskForm.value.due,
@@ -33,5 +34,8 @@ export class FormComponent implements OnInit {
     )
     taskList.push(task);
     console.log(task)
+    this.taskForm.get('description').reset()
+    this.taskForm.get('due').reset()
+    this.taskForm.get('priority').reset()
   }
 }

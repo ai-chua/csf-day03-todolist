@@ -1,32 +1,36 @@
-<h2>Add Task</h2>
-
-<form action="" class="form-group example-form" [formGroup]="taskForm" (ngSubmit)="addTask()">
+<div class="form-container">
+  <h2>Add Task</h2>
   
-  <mat-form-field class="example-full-width">
-    <mat-label>Description</mat-label>
-    <input matInput formControlName="description" placeholder="Walk the dog 🐕">
-  </mat-form-field>
-  
-  <label for="priority">Priority</label><br><br>
-  <mat-radio-group id="priority" formControlName="priority">
-    <mat-radio-button value="High">❗️❗️❗️</mat-radio-button>
-    <mat-radio-button value="Medium">❗️❗️</mat-radio-button>
-    <mat-radio-button value="Low">❗️</mat-radio-button>
-  </mat-radio-group>
-  
-  <br><br>
-  
-  <mat-form-field appearance="fill">
-    <mat-label>Due date:</mat-label>
-    <input matInput [matDatepicker]="dp" [min]="tomorrow"  formControlName="due">
-    <mat-datepicker-toggle matSuffix [for]="dp"></mat-datepicker-toggle>
-    <mat-datepicker #dp></mat-datepicker>
-  </mat-form-field>
-  
+  <form action="" class="form-group example-form" [formGroup]="taskForm" (ngSubmit)="addTask()">
+    
+    <mat-form-field class="full-width" appearance="fill">
+      <mat-label>Description</mat-label>
+      <input class="full-width" matInput formControlName="description" placeholder="Walk the dog 🐕">
+    </mat-form-field>
+    
+    <br>
+    
+    <label for="priority">Priority</label><br><br>
+    <mat-radio-group id="priority" formControlName="priority">
+      <mat-radio-button value="High">❗️❗️❗️</mat-radio-button>
+      <mat-radio-button value="Medium">❗️❗️</mat-radio-button>
+      <mat-radio-button value="Low">❗️</mat-radio-button>
+    </mat-radio-group>
+    
+    <br><br>
+    
+    <mat-form-field class="full-width" appearance="fill">
+      <mat-label>Due date:</mat-label>
+      <input class="full-width" matInput [matDatepicker]="dp" [min]="tomorrow"  formControlName="due">
+      <mat-datepicker-toggle matSuffix [for]="dp"></mat-datepicker-toggle>
+      <mat-datepicker #dp></mat-datepicker>
+    </mat-form-field>
+    
+    <br>
+    
+    <button mat-raised-button color="primary" type="submit" class="btn btn-primary">Add</button>
+  </form>
   <br>
-
-  <button mat-raised-button color="primary" type="submit" class="btn btn-primary">Add</button>
-</form>
-<br>
-
-<app-tasklist></app-tasklist>
+  
+  <app-tasklist></app-tasklist>
+</div>
