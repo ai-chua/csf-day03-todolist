@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Task } from '../model/task';
 import { taskList } from '../model/tasklist'
 
@@ -14,19 +14,21 @@ export class FormComponent implements OnInit {
 
   constructor(private fb: FormBuilder) {
     this.taskForm = fb.group({
-      description: fb.control(''),
-      priority: fb.control(''),
-      due: fb.control('')
+      description: fb.control('', [ Validators.required ]),
+      priority: fb.control('', [ Validators.required ]),
+      due: fb.control('', [ Validators.required ])
     })
     this.tomorrow.setDate(this.tomorrow.getDate() +1);
   }
 
   ngOnInit(): void {
   }
+  
+  resetForm(){
+    this.taskForm.reset()
+  }
 
   addTask(){
-    console.info(typeof this.taskForm.value.due)
-    console.info(this.taskForm.value.due)
     let task = new Task(
       this.taskForm.value.description,
       this.taskForm.value.due,
